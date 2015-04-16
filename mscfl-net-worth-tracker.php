@@ -17,7 +17,7 @@ $page->setPageTitle('My So-Called Financial Life Net Worth Tracker');
 $page->setCapability('manage_options');
 $page->setParentMenu('tools');
 $page->setSlug('mscfl-net-worth-tracker');
-$page->setTemplate(WP_PLUGIN_DIR.'/mscfl-net-worth-tracker/templates/net-worth-tracker.php');
+$page->setTemplate(dirname(__FILE__).'/templates/net-worth-tracker.php');
 
 $plugin = new MySoCalledFinancialLife\WP\Plugin;
 $plugin->addAction('admin_menu', $page);
