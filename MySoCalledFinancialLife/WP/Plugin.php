@@ -42,7 +42,7 @@ class Plugin
     public function runActions()
     {
         foreach ($this->actions as $action) {
-            add_action($action['hook'], array($action['object'], 'init'));
+            add_action($action['hook'], $action['object']);
         }
     }
 }

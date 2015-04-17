@@ -10,6 +10,14 @@
  * @version 1.0.0
  */
 
+/**
+ * Require the custom.php file if present.
+ */
+$custom = stream_resolve_include_path('custom.php');
+if (false !== $custom) {
+    require_once $custom;
+}
+
 spl_autoload_extensions('.php');
 
 /**
