@@ -38,3 +38,4 @@ function mscflNwtActivate() {
     dbDelta($accounts_sql);
     dbDelta($history_sql);
 }
+

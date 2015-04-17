@@ -24,12 +24,15 @@ class Page
     private $page_title;
     private $parent_menu;
     private $slug;
+    private $style_name;
+    private $stylesheet_file;
     private $template;
+    private $wp_page;
 
     public function init()
     {
         if (null !== $this->parent_menu) {
-            add_submenu_page(
+            $this->wp_page = add_submenu_page(
                 $this->parent_menu,
                 $this->page_title,
                 $this->menu_title,
@@ -50,6 +53,11 @@ class Page
         } else {
             die('No template found for '.$this->page_title);
         }
+    }
+
+    public function renderStyles()
+    {
+        wp_enqueue_style($this->style_name, $this->stylesheet_file);
     }
 
     public function setCapability($capability)
@@ -83,6 +91,12 @@ class Page
             $slug = $slug.'.php';
         }
         $this->slug = $slug;
+    }
+
+    public function setStyle($style_name, $location)
+    {
+        $this->style_name = $style_name;
+        $this->stylesheet_file = $location;
     }
 
     public function setTemplate($file)

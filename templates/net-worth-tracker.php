@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap mscflnwt">
     <h2>My So-Called Financial Life Net Worth Tracker</h2>
 
     <h3>Add New Account</h3>

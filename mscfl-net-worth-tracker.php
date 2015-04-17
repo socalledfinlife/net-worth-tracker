@@ -23,10 +23,12 @@ $page->setCapability('manage_options');
 $page->setParentMenu('tools');
 $page->setSlug('mscfl-net-worth-tracker');
 $page->setTemplate(dirname(__FILE__).'/templates/net-worth-tracker.php');
+$page->setStyle('mscflnwt', plugins_url('templates/css/style.css', __FILE__));
 
 // Add actions
 $plugin->addAction('admin_menu', array($page, 'init'));
 $plugin->addAction('wp_ajax_getNetWorth', array($tracker, 'getNetWorth'));
+$plugin->addAction('admin_enqueue_scripts', array($page, 'renderStyles'));
 
 $plugin->onActivation(__FILE__, 'mscflNwtActivate');
 $plugin->onDeactivation();
